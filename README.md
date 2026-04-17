@@ -20,4 +20,4 @@
  - NetflixGPT
     - SearchBar
     - Movie suggestion
-    
+    # netflix-GPT
