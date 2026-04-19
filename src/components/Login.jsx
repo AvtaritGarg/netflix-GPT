@@ -11,6 +11,7 @@ const Login = () => {
     
     const email = useRef(null)
     const password = useRef(null)
+    const fullName = useRef(null)
 
     const toggleSignInForm = () =>{
         setIsSignInForm(!isSignInForm)
@@ -18,7 +19,7 @@ const Login = () => {
 
     const handleButtonClick = () => {
         // Validate email and password
-        const message = checkValidData(email?.current?.value,password?.current?.value)
+        const message = checkValidData(email?.current?.value,password?.current?.value,fullName?.current?.value)
         setErrorMessage(message)
     }
 
@@ -42,7 +43,11 @@ const Login = () => {
                     </h1>
 
                 {!isSignInForm && (
-                    <input type="text" placeholder="Full Name" className="m-4 p-2 w-70 ml-11 rounded-lg bg-gray-400"/>
+                    <input
+                    ref={fullName} 
+                    type="text" 
+                    placeholder="Full Name" 
+                    className="m-4 p-2 w-70 ml-11 rounded-lg bg-gray-400"/>
                 )
                 }
                 <input
