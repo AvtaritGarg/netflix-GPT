@@ -11,7 +11,7 @@
     - SignIn or SignUp form
     - Redirect to browse page
  - Browse Page
-    - Header 
+    - Header
     - Main movie
         - Trailer in background 
         - Name and description in front

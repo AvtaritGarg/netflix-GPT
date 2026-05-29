@@ -2,7 +2,6 @@ import { useState, useRef  } from "react"
 import Header from "./Header"
 import { checkValidData } from "../utils/Validate"
 
-
 const Login = () => {
 
     const [isSignInForm, setIsSignInForm] = useState(true)
@@ -22,8 +21,6 @@ const Login = () => {
         const message = checkValidData(email?.current?.value,password?.current?.value,fullName?.current?.value)
         setErrorMessage(message)
     }
-
-    
 
     return (
         <div>
@@ -73,7 +70,7 @@ const Login = () => {
                     }>
                     {isSignInForm? "Sign In": "Sign Up"}
                 </button>
-                <p className= "text-white opacity-100 ml-11 pt-4 pb-6 mb-8 cursor-pointer" onClick={toggleSignInForm}>{isSignInForm? "Already Registered? Sign In now ": "New to netflix? Sign Up Now"}</p>
+                <p className= "text-white opacity-100 ml-11 pt-4 pb-6 mb-8 cursor-pointer" onClick={toggleSignInForm}>{!isSignInForm? "Already Registered? Sign In now ": "New to netflix? Sign Up Now"}</p>
             </form>
             </div>
         </div>
