@@ -1,6 +1,7 @@
 import { useState, useRef  } from "react"
 import Header from "./Header"
 import { checkValidData } from "../utils/Validate"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
 
@@ -19,8 +20,42 @@ const Login = () => {
     const handleButtonClick = () => {
         // Validate email and password
         const message = checkValidData(email?.current?.value,password?.current?.value,fullName?.current?.value)
-        setErrorMessage(message)
+        setErrorMessage(message);
+        if(message === null){
+            if(!isSignInForm){
+                const auth = getAuth();
+                createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
+                .then((userCredential) => {
+                    // Signed up 
+                    const user = userCredential.user;
+                    console.log(user);
+                    
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                });
+            }
+            if(isSignInForm){
+                const auth = getAuth();
+                signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log(user);
+                    
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrorMessage(errorCode + "-" + errorMessage)
+                });
+            }
+        }
     }
+
 
     return (
         <div>
@@ -70,7 +105,7 @@ const Login = () => {
                     }>
                     {isSignInForm? "Sign In": "Sign Up"}
                 </button>
-                <p className= "text-white opacity-100 ml-11 pt-4 pb-6 mb-8 cursor-pointer" onClick={toggleSignInForm}>{!isSignInForm? "Already Registered? Sign In now ": "New to netflix? Sign Up Now"}</p>
+                <p className= "text-white opacity-100 ml-11 pt-4 pb-6 mb-8 cursor-pointer" onClick={toggleSignInForm}>{!isSignInForm? "Already Registered? Click here to Sign In now ": "New to netflix? Click here to Sign Up Now"}</p>
             </form>
             </div>
         </div>

@@ -14,10 +14,12 @@
     "firebase": "^12.12.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "react-redux": "^9.3.0",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@reduxjs/toolkit": "^2.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
