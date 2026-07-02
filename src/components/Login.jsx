@@ -1,17 +1,16 @@
 import { useState, useRef  } from "react"
 import Header from "./Header"
 import { checkValidData } from "../utils/Validate"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { PROFILE, WALLPAPER } from "../utils/constants";
 import { addUser } from "../utils/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-
+    const dispatch = useDispatch();
+    
     const [isSignInForm, setIsSignInForm] = useState(true)
 
     const [errorMessage, setErrorMessage] = useState("")
@@ -32,29 +31,34 @@ const Login = () => {
             if(!isSignInForm){
                 createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
                 .then((userCredential) => {
-                    // Signed up 
                     const user = userCredential.user;
-                    console.log(user);
-                    navigate("/browse")
+                    updateProfile(user, {
+                        displayName: fullName?.current?.value,
+                        photoURL: PROFILE
+                    }).then(() => {
+                        const {uid, displayName, email, photoURL} = auth.currentUser;
+                        dispatch(
+                            addUser({
+                                uid:uid, 
+                                displayName: displayName, 
+                                email: email, 
+                                photoURL: photoURL
+                            })
+                        )
+                        
+                    }).catch((error) => {
 
-                    dispatch(addUser(user))
-                    
-                    // ...
+                    });
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // ..
+                    setErrorMessage(errorCode + "-" + errorMessage)
                 });
             }
             if(isSignInForm){
                 signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
                 .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    console.log(user);
-                    navigate("/browse")
-                    
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -70,7 +74,7 @@ const Login = () => {
         <div>
             <Header/>
             <div className="absolute -z-10">
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/7ea4545e-42d3-4ebf-82fd-0e1984dc6375/web/IN-en-20260316-TRIFECTA-perspective_789c5633-3949-4708-8e6c-8ddfd22ed696_large.jpg"
+                <img src = {WALLPAPER}
                 alt = "background"
                 className=""
                 />

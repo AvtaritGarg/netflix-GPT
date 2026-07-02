@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "netflix-gpt-by-avtarit"
-  }
+    "default": "avtarit-movieapp",
+    "testing": "avtarit-movieapp"
+  },
+  "targets": {},
+  "etags": {}
 }
