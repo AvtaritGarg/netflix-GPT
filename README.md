@@ -21,6 +21,8 @@
   - Add hardcoded values to the constants file
   - Register TMDB API & get access token
   - Get data from TMDB now playing movies list API
+  - Store the now playing movies in moviesSlice
+  - Made a custom hook to fetch now playing movies
 
 
 
