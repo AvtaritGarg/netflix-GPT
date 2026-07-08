@@ -23,6 +23,12 @@
   - Get data from TMDB now playing movies list API
   - Store the now playing movies in moviesSlice
   - Made a custom hook to fetch now playing movies
+  - Planned MainContainer and SecondaryContainer
+  - Made VideoTitle and VideoBackground
+  - Took movie name, overview, key to trailer from movie slice
+  - Used the key to fetch movieVideos API
+  - Made a custom hook to fetch Videos API and find trailer from it
+  - Ran trailer in background of MainContainer
 
 
 
