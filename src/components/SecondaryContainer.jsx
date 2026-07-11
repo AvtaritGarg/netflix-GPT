@@ -12,7 +12,16 @@ const SecondaryContainer = () => {
 
   return (
     <div>
-      <MovieList title="nowPlayingMovies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
+      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
     </div>
   );
 };

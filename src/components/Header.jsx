@@ -41,7 +41,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-full bg-linear-to-b from-black flex justify-between">
+    <div className="absolute w-full bg-linear-to-b from-black flex justify-between h-12">
       <div className="w-52 z-10 my-2 mx-16">
         <img src={LOGO} alt="logo" />
       </div>
@@ -49,7 +49,7 @@ const Header = () => {
         <div className="flex h-12 m-6 w-32 justify-between">
           <img className="z-10 w-10 h-10 rounded-md" src={user.photoURL} />
           <button
-            className="text-white cursor-pointer pb-3"
+            className="text-white cursor-pointer pb-3 relative z-20"
             onClick={() => handleButtonClick()}
           >
             Sign Out
