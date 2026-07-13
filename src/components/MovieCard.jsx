@@ -1,6 +1,5 @@
 const MovieCard = ({ poster_path }) => {
-  console.log(poster_path);
-
+  
   return (
     <div className="w-48 ">
       <img
