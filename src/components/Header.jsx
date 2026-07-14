@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toggleGptSearch } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ const Header = () => {
       .then(() => {})
       .catch((error) => {});
   };
+  const handleGptToggle = () => {
+    dispatch(toggleGptSearch());
+  };
 
   return (
     <div className="absolute w-full bg-linear-to-b from-black flex justify-between h-12">
@@ -46,10 +50,16 @@ const Header = () => {
         <img src={LOGO} alt="logo" />
       </div>
       {user && (
-        <div className="flex h-12 m-6 w-32 justify-between">
+        <div className="flex h-12 m-6 w-56 justify-between">
+          <button
+            className="h-10 px-2 rounded-sm text-white cursor-pointer relative z-20 mt-0.5 text-lg hover:underline"
+            onClick={handleGptToggle}
+          >
+            Ask AI
+          </button>
           <img className="z-10 w-10 h-10 rounded-md" src={user.photoURL} />
           <button
-            className="text-white cursor-pointer pb-3 relative z-20"
+            className="h-10 px-2 rounded-sm text-white cursor-pointer relative z-20  text-lg hover:underline"
             onClick={() => handleButtonClick()}
           >
             Sign Out

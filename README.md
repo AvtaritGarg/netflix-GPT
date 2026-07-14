@@ -29,6 +29,17 @@
   - Used the key to fetch movieVideos API
   - Made a custom hook to fetch Videos API and find trailer from it
   - Ran trailer in background of MainContainer
+  - Build SecondarContainer
+  - Build MovieList
+  - Build MovieCard
+  - Made a scroll-able row of nowPlayingMovies
+  - Fetch more Popular Movies
+  - Made multiple MovieLists
+  - Made it look pretty with tailwind
+  - Created AI search button in navbar
+  - Created gptSlice
+  - Made the AI search button to toggle between main browse page and AI Search page
+  - Built the foundation of AI Search Page
 
 
 
