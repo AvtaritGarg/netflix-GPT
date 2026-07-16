@@ -40,6 +40,7 @@
   - Created gptSlice
   - Made the AI search button to toggle between main browse page and AI Search page
   - Built the foundation of AI Search Page
+  - (BONUS)Built multi-language feature in AI Search Page 
 
 
 
