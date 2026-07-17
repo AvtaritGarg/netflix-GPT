@@ -3,7 +3,6 @@ import lang from "../utils/LangConstants";
 import AIBackground from "./AIBackground";
 
 const GptSearch = () => {
-  console.log(lang);
   const configLang = useSelector((store)=>store.config.lang)
   
   return (

@@ -19,5 +19,9 @@ export const API_OPTIONS = {
 export const SUPPORTED_LANGUAGES = [
   {identifier: "en", name: "English"},
   {identifier: "hi", name: "Hindi"},
-  {identifier: "es", name: "Spanish"}
+  {identifier: "es", name: "Spanish"},
+  {identifier: "fr", name: "French"},
+  {identifier: "de", name: "German"},
+  {identifier: "ja", name: "Japanese"},
+  {identifier: "zh", name: "Mandarin"},
 ]

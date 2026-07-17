@@ -13,7 +13,6 @@ const usePopularMovies1 = () => {
     );
     const json = await data.json();
     dispatch(addPopularMovies1(json));
-    console.log(json);
     
   };
 

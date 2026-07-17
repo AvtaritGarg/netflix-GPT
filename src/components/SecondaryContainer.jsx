@@ -1,16 +1,18 @@
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
+import lang from "../utils/LangConstants";
 
 const SecondaryContainer = () => {
   const nowPlayingMovies = useSelector(
     (store) => store.movies.nowPlayingMovies,
   );
+  const currentLang = useSelector((store)=> store.config.lang)
+  
   const popularMovies1 = useSelector((store) => store.movies.popularMovies1);
   const popularMovies2 = useSelector((store) => store.movies.popularMovies2);
   const popularMovies3 = useSelector((store) => store.movies.popularMovies3);
   const popularMovies4 = useSelector((store) => store.movies.popularMovies4);
   const popularMovies5 = useSelector((store) => store.movies.popularMovies5);
-
   if(!nowPlayingMovies) return;
   if(!popularMovies1) return;
   if(!popularMovies2) return;
@@ -20,13 +22,13 @@ const SecondaryContainer = () => {
 
   return (
     <div>
-      <MovieList title="Now Playing Movies" movies={nowPlayingMovies} />
-      <MovieList title="Popular Movies" movies={popularMovies4?.results} />
-      <MovieList title="Suggested for You" movies={popularMovies2?.results} />
-      <MovieList title="Movies You Might Like" movies={popularMovies3?.results} />
-      <MovieList title="Top Picks Today" movies={popularMovies1?.results} />
-      <MovieList title="Upcoming Movies" movies={popularMovies5?.results} />
-      <MovieList title="Critically Acclaimed Shows" movies={popularMovies2?.results} />
+      <MovieList title={lang[currentLang].movieList1} movies={nowPlayingMovies} />
+      <MovieList title={lang[currentLang].movieList2} movies={popularMovies4?.results} />
+      <MovieList title={lang[currentLang].movieList3} movies={popularMovies2?.results} />
+      <MovieList title={lang[currentLang].movieList4} movies={popularMovies3?.results} />
+      <MovieList title={lang[currentLang].movieList5} movies={popularMovies1?.results} />
+      <MovieList title={lang[currentLang].movieList6} movies={popularMovies5?.results} />
+      <MovieList title={lang[currentLang].movieList7} movies={popularMovies2?.results} />
     </div>
   );
 };
