@@ -65,7 +65,7 @@ const Header = () => {
                 bg-neutral-900 text-white text-sm
                 py-1 pl-2 pr-4
                 cursor-pointer
-                bg-no-repeat bg-[right_8px_center] bg-[length:10px]
+                bg-no-repeat bg-position-[right_8px_center] bg-size-[10px]
                 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12 8%27><path d=%27M1 1l5 5 5-5%27 stroke=%27white%27 stroke-width=%272%27 fill=%27none%27/></svg>')]
                 "
               style={{
